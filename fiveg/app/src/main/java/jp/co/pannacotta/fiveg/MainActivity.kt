@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDisplayInfoChanged(telephonyDisplayInfo: TelephonyDisplayInfo) {
                 if (ActivityCompat.checkSelfPermission(
                         applicationContext,
-                        Manifest.permission.READ_PHONE_STATE
+                        READ_PHONE_STATE
                     ) != PackageManager.PERMISSION_GRANTED
                 ) {
                     return
@@ -119,14 +119,32 @@ class MainActivity : AppCompatActivity() {
                     // 5Gネットワークに接続しているか判別
                     val label = findViewById<TextView>(R.id.network_type_label)
                     label.text = when (telephonyDisplayInfo.overrideNetworkType) {
-                        OVERRIDE_NETWORK_TYPE_LTE_ADVANCED_PRO -> "LTE Advanced Pro (5Ge)"
-                        OVERRIDE_NETWORK_TYPE_NR_NSA -> "5G NR（Sub-6）network"
-                        OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE -> "5G mmWave（5G+ / 5G UW）network"
-                        OVERRIDE_NETWORK_TYPE_LTE_CA -> "LTE"
+                        OVERRIDE_NETWORK_TYPE_LTE_ADVANCED_PRO -> {
+                            replaceText(label, "LTE Advanced Pro (5Ge)")
+                            "LTE Advanced Pro (5Ge)"
+                        }
+                        OVERRIDE_NETWORK_TYPE_NR_NSA -> {
+                            replaceText(label, "5G NR（Sub-6）network")
+                            "5G NR（Sub-6）network"
+                        }
+                        OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE -> {
+                            replaceText(label, "5G mmWave（5G+ / 5G UW）network")
+                            "5G mmWave（5G+ / 5G UW）network"
+                        }
+                        OVERRIDE_NETWORK_TYPE_LTE_CA -> {
+                            replaceText(label, "LTE")
+                            "LTE"
+                        }
                         else -> "other:${telephonyDisplayInfo.overrideNetworkType}"
                     }
                 }
             }
         }, PhoneStateListener.LISTEN_DISPLAY_INFO_CHANGED)
+    }
+
+    private fun replaceText(label: TextView, text: String) {
+        Thread {
+            label.text = text
+        }.start()
     }
 }
