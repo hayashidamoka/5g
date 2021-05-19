@@ -5,17 +5,19 @@
     android:padding="@dimen/widget_margin"
     android:theme="@style/ThemeOverlay.Fiveg.AppWidgetContainer">
 
-    <TextView
-        android:id="@+id/appwidget_text"
+    <ImageView
+        android:id="@+id/oyaji_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
         android:background="?attr/appWidgetBackgroundColor"
-        android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
-        android:textColor="?attr/appWidgetTextColor"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+        android:src="@drawable/androidjp"/>
+
+    <Button
+        android:id="@+id/transparent_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#00000000"/>
 </RelativeLayout>

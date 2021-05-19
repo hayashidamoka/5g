@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fiveg">
-        <receiver android:name=".DancingOldmanWdget">
+        <receiver android:name=".DancingOldmanWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="jp.co.pannacotta.fiveg.OYAJI_CLICKED" />
             </intent-filter>
 
             <meta-data
