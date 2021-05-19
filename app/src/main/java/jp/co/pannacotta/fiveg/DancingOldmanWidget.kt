@@ -6,9 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.RemoteViews
-import android.widget.Toast
 
 /**
  * Implementation of App Widget functionality.
@@ -40,15 +38,11 @@ class DancingOldmanWidget : AppWidgetProvider() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
-        Log.d("ろぐ", "おんれしーぶ")
-        Toast.makeText(context, "おんれしーぶ", Toast.LENGTH_SHORT).show()
         var action = ""
         intent?.also {
             action = it.action.toString()
         }
         if(action == OYAJI_CLICKED) {
-            Log.d("ろぐ", "たっぷ")
-            Toast.makeText(context, "たっぷ", Toast.LENGTH_SHORT).show()
             context?.let {
                 val appWidgetManager = AppWidgetManager.getInstance(context)
                 val views = RemoteViews(it.packageName, R.layout.dancing_oldman_wdget)
@@ -66,7 +60,6 @@ internal fun updateAppWidget(
     appWidgetManager: AppWidgetManager,
     appWidgetId: ComponentName
 ) {
-    val widgetText = context.getString(R.string.appwidget_text)
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.dancing_oldman_wdget)
 
