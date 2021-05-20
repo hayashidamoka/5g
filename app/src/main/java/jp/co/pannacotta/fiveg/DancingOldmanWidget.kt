@@ -21,7 +21,7 @@ class DancingOldmanWidget : AppWidgetProvider() {
         intent?.also {
             it.action = "INIT"
         }
-        context.startService(intent)
+        context.startForegroundService(intent)
     }
 
     override fun onEnabled(context: Context) {
