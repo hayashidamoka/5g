@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="130dp"
     android:background="?attr/appWidgetBackgroundColor"
     android:padding="@dimen/widget_margin"
     android:theme="@style/ThemeOverlay.Fiveg.AppWidgetContainer">
@@ -14,7 +14,7 @@
         android:layout_centerVertical="true"
         android:scaleType="centerCrop"
         android:background="?attr/appWidgetBackgroundColor"
-        tools:src="@drawable/androidjp"/>
+        tools:src="@drawable/dancing_oldman_standing_up"/>
 
     <Button
         android:id="@+id/transparent_button"

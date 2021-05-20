@@ -16,6 +16,7 @@ public class NetworkService extends Service {
     public final String OYAJI_CLICKED = "jp.co.pannacotta.fiveg.OYAJI_CLICKED";
     private RemoteViews remoteviews;
     private Context context;
+    private int count = 0;
 
     @Nullable
     @Override
@@ -35,7 +36,18 @@ public class NetworkService extends Service {
         if(intent.getAction().equals(OYAJI_CLICKED)) {
             Log.d("ろぐ", "くりっく");
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.dancing_oldman_widget);
-            views.setImageViewResource(R.id.oyaji_image_view, R.drawable.anim1);
+            switch (count){
+                case 0:
+                    views.setImageViewResource(R.id.oyaji_image_view, R.drawable.dancing_oldman_ready);
+                    break;
+                case 1:
+                    views.setImageViewResource(R.id.oyaji_image_view, R.drawable.dancing_oldman_preparation1);
+                    break;
+                case 2:
+                    views.setImageViewResource(R.id.oyaji_image_view, R.drawable.dancing_oldman_preparation2);
+                    break;
+            }
+            count ++;
         }
 
         //ウィジェット画面の更新処理　：　必須
@@ -49,7 +61,22 @@ public class NetworkService extends Service {
     private void init(){
         this.context = getApplicationContext();
         remoteviews = new RemoteViews(getPackageName(),R.layout.dancing_oldman_widget);
-        remoteviews.setImageViewResource(R.id.oyaji_image_view, R.drawable.fiveg);
+//        remoteviews.setImageViewResource(R.id.oyaji_image_view, R.drawable.fiveg);
+
+        switch (count){
+            case 0:
+                remoteviews.setImageViewResource(R.id.oyaji_image_view, R.drawable.dancing_oldman_ready);
+                break;
+            case 1:
+                remoteviews.setImageViewResource(R.id.oyaji_image_view, R.drawable.dancing_oldman_preparation1);
+                break;
+            case 2:
+                remoteviews.setImageViewResource(R.id.oyaji_image_view, R.drawable.dancing_oldman_preparation2);
+                break;
+        }
+        count ++;
+
+
         /*
          * 明示的インテント
          * マニフェストへの記述不要
