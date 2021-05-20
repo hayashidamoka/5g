@@ -23,7 +23,7 @@
                 android:resource="@xml/dancing_oldman_wdget_info" />
         </receiver>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity_">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
