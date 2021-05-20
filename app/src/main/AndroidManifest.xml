@@ -20,7 +20,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/dancing_oldman_wdget_info" />
+                android:resource="@xml/dancing_oldman_widget_info" />
         </receiver>
         <service android:name=".NetworkService">
             <intent-filter>
@@ -28,7 +28,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".MainActivity_">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

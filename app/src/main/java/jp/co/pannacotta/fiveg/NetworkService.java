@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
@@ -14,8 +13,8 @@ import androidx.annotation.Nullable;
 
 public class NetworkService extends Service {
     public final String OYAJI_CLICKED = "jp.co.pannacotta.fiveg.OYAJI_CLICKED";
-    private RemoteViews remoteviews;
-    private Context context;
+    private final static int FINAL_DANCE_INDEX = 2;
+    private int currentDanceIndex = 1;
 
     @Nullable
     @Override
@@ -25,38 +24,31 @@ public class NetworkService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        RemoteViews remoteViews = new RemoteViews(getApplicationContext().getPackageName(), R.layout.dancing_oldman_widget);
+
         if(intent.getAction().equals("INIT")){
             Log.d("ろぐ", "いにっと");
-            init();
-        }
-        /*
-         * イベント受信処理をここに記述する
-         */
-        if(intent.getAction().equals(OYAJI_CLICKED)) {
-            Log.d("ろぐ", "くりっく");
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.dancing_oldman_widget);
-            views.setImageViewResource(R.id.oyaji_image_view, R.drawable.anim1);
+            remoteViews.setImageViewResource(R.id.oyaji_image_view, R.drawable.other);
+            Intent clickIntent = new Intent(getApplicationContext() , this.getClass());	//明示的インテント
+            clickIntent.setAction(OYAJI_CLICKED);
+            PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 0, clickIntent, 0);
+            remoteViews.setOnClickPendingIntent(R.id.transparent_button, pendingIntent);
         }
 
-        //ウィジェット画面の更新処理　：　必須
-        AppWidgetManager manager = AppWidgetManager.getInstance(context);
-        ComponentName widgetId = new ComponentName(context, DancingOldmanWidget.class);
-        manager.updateAppWidget(widgetId, remoteviews);
+        if(intent.getAction().equals(OYAJI_CLICKED)) {
+            remoteViews.setImageViewResource(R.id.oyaji_image_view, getApplicationContext().getResources().getIdentifier("dance" + currentDanceIndex, "drawable", getApplicationContext().getPackageName()));
+            if(currentDanceIndex == FINAL_DANCE_INDEX) {
+                currentDanceIndex = 1;
+            } else {
+                currentDanceIndex++;
+            }
+            Log.d("ろぐ", "くりっく" + currentDanceIndex);
+        }
+
+        AppWidgetManager manager = AppWidgetManager.getInstance(getApplicationContext());
+        ComponentName widgetId = new ComponentName(getApplicationContext(), DancingOldmanWidget.class);
+        manager.updateAppWidget(widgetId, remoteViews);
 
         return super.onStartCommand(intent, flags, startId);
-    }
-
-    private void init(){
-        this.context = getApplicationContext();
-        remoteviews = new RemoteViews(getPackageName(),R.layout.dancing_oldman_widget);
-        remoteviews.setImageViewResource(R.id.oyaji_image_view, R.drawable.fiveg);
-        /*
-         * 明示的インテント
-         * マニフェストへの記述不要
-         */
-        Intent intent = new Intent(context , this.getClass());	//明示的インテント
-        intent.setAction(OYAJI_CLICKED);
-        PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
-        remoteviews.setOnClickPendingIntent(R.id.transparent_button, pendingIntent);
     }
 }
