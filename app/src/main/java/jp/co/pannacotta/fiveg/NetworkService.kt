@@ -22,26 +22,28 @@ import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 
 class NetworkService : Service() {
+    companion object {
+        const val INIT = "INIT"
+        private const val OYAJI_CLICKED = "OYAJI_CLICKED"
+        // 最後の踊り画像の数字(R.drawable.dance? の一番大きい数字を設定する)
+        private const val FINAL_DANCE_INDEX = 2
+    }
+
+    // 今何枚目の画像か　R.drawable.dance1 から始まるので1で初期化
+    private var currentDanceIndex = 1
+
+    // 5Gエリアに入ったフラグ
+    private var isFiveg = false
+
+    // 見る必要ない
     private var telephonyManager: TelephonyManager? = null
-
-    // TelephonyManagerインスタンス(データ通信SIM用)
     private var telephonyManagerForData: TelephonyManager? = null
-    private var mCurrentOverrideNetworkType = "NONE"
-
-    // 最新のSubIdの値
     private var mCurrentSubId = SubscriptionManager.INVALID_SUBSCRIPTION_ID
-
-    // Capabilityフラグ関係
     private var mHasTemporarilyNotMetered = false
     private var mHasNotMetered = false
-
-    // BandWidth関係
     private var mBandWidthDown = 0
     private var mBandWidthUp = 0
 
-    // widget関連
-    val OYAJI_CLICKED = "jp.co.pannacotta.fiveg.OYAJI_CLICKED"
-    private var currentDanceIndex = 1
     override fun onBind(intent: Intent): IBinder? {
         return null
     }
@@ -72,7 +74,7 @@ class NetworkService : Service() {
         createTelephonyManagerForData(SubscriptionManager.getDefaultDataSubscriptionId())
 
         // PhoneStateListenerの監視開始
-        telephonyManager!!.listen(
+        telephonyManager?.listen(
             mBasePhoneStateListener,
             PhoneStateListener.LISTEN_ACTIVE_DATA_SUBSCRIPTION_ID_CHANGE
         )
@@ -80,18 +82,15 @@ class NetworkService : Service() {
 
         // NetworkCallbackの監視開始
         val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-        if (connectivityManager != null) {
-            val builder = NetworkRequest.Builder()
-            builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-            builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
-            builder.addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-            connectivityManager.registerNetworkCallback(builder.build(), mNetworkCallback)
-        }
+        val builder = NetworkRequest.Builder()
+        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+        builder.addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+        connectivityManager.registerNetworkCallback(builder.build(), mNetworkCallback)
     }
 
     private val mBasePhoneStateListener: PhoneStateListener = object : PhoneStateListener() {
         override fun onActiveDataSubscriptionIdChanged(subId: Int) {
-            Log.d("ろぐ", "subId=$subId")
             if (mCurrentSubId == subId) {
                 // データ通信用subIdに変化がない場合は処理を行わない
                 return
@@ -103,8 +102,9 @@ class NetworkService : Service() {
             createTelephonyManagerForData(subId)
             startListenPhoneStateForData()
             if (subId == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
-                // データ通信できない状態の場合、最新のOverrideNetworkTypeの値をリセット
-                mCurrentOverrideNetworkType = "NONE"
+                // データ通信できない状態の場合、棒立ちになってもらう
+                isFiveg = false
+                updateWidget(R.drawable.other)
             }
         }
     }
@@ -113,7 +113,7 @@ class NetworkService : Service() {
             network: Network,
             networkCapabilities: NetworkCapabilities
         ) {
-            Log.d("ろぐ", "onCapabilitiesChanged network=$network, capa=$networkCapabilities")
+//            Log.d("ろぐ", "onCapabilitiesChanged network=$network, capa=$networkCapabilities")
             // モバイル通信関係だけ拾いたいので念のため判定
             if (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
                 mHasNotMetered =
@@ -132,11 +132,16 @@ class NetworkService : Service() {
                 overrideNetworkType == TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE
             ) {
                 // 構え画像
-                currentDanceIndex = 1
-                updateWidget(R.drawable.fiveg)
+                if (!isFiveg) {
+                    isFiveg = true
+                    currentDanceIndex = 1
+                    updateWidget(R.drawable.fiveg)
+                    Log.d("ろぐ", "構え")
+                }
             } else {
                 // 棒立ち画像
                 updateWidget(R.drawable.other)
+                isFiveg = false
             }
         }
     }
@@ -170,12 +175,12 @@ class NetworkService : Service() {
     }
 
     private val isPermissionGranted: Boolean
-        private get() = checkSelfPermission(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED
+        get() = checkSelfPermission(Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED
 
     private fun updateWidget(intent: Intent) {
         val remoteViews =
             RemoteViews(applicationContext.packageName, R.layout.dancing_oldman_widget)
-        if (intent.action == "INIT") {
+        if (intent.action == INIT) {
             Log.d("ろぐ", "いにっと")
             remoteViews.setImageViewResource(R.id.oyaji_image_view, R.drawable.other)
             val clickIntent = Intent(applicationContext, this.javaClass) //明示的インテント
@@ -184,6 +189,10 @@ class NetworkService : Service() {
             remoteViews.setOnClickPendingIntent(R.id.transparent_button, pendingIntent)
         }
         if (intent.action == OYAJI_CLICKED) {
+            Log.d("ろぐ", "くりっく")
+            if(!isFiveg) {
+                return
+            }
             remoteViews.setImageViewResource(
                 R.id.oyaji_image_view, applicationContext.resources.getIdentifier(
                     "dance$currentDanceIndex", "drawable", applicationContext.packageName
@@ -221,9 +230,5 @@ class NetworkService : Service() {
             applicationContext.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         service.createNotificationChannel(channel)
         return channelId
-    }
-
-    companion object {
-        private const val FINAL_DANCE_INDEX = 2
     }
 }

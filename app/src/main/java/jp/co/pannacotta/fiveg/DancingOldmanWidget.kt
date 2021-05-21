@@ -19,7 +19,7 @@ class DancingOldmanWidget : AppWidgetProvider() {
         // There may be multiple widgets active, so update all of them
         intent = Intent(context, NetworkService::class.java)
         intent?.also {
-            it.action = "INIT"
+            it.action = NetworkService.INIT
         }
         context.startForegroundService(intent)
     }
