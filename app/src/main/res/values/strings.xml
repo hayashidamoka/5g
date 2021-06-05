@@ -1,7 +1,25 @@
 <resources>
     <string name="app_name">5爺</string>
+
+
+    <string name="first_fragment_description">電話を許可して</string>
+    <string name="second_fragment_description">ウィジェットをホーム画面に追加！！</string>
+    <string name="third_fragment_description">wi-fiを消して５Gエリアに入ると</string>
+    <string name="fourth_fragment_description">じじいが構える！</string>
+    <string name="fifth_fragment_description">画像をタップし続けるとじじいが踊る！</string>
+
+
+    <string name="first_fragment_title">使い方①</string>
+    <string name="second_fragment_title">使い方②</string>
+    <string name="third_fragment_title">使い方③</string>
+    <string name="fourth_fragment_title">使い方④</string>
+    <string name="fifth_fragment_title">使い方⑤</string>
+
+
+
     <string name="not_enough_api">APIレベルがたりません。</string>
     <string name="not_allowed_permission">パーミッションが許可されていません。</string>
     <string name="fiveg">5爺</string>
     <string name="fiveg_notification_text">5Gエリアに入ると爺が踊りの準備をするよ</string>
+
 </resources>

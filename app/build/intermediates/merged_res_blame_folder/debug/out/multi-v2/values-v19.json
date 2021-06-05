@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
+            "map": [
+                {
+                    "source": "/Users/furukawakaito/.gradle/caches/transforms-2/files-2.1/548a2141bd26dd0b46e4b0b9bbcef2c4/jetified-welcome-1.4.1/res/values-v19/values-v19.xml",
+                    "from": {
+                        "startLines": "2,6,9,12,15",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,285,428,581,718",
+                        "endLines": "5,8,11,14,17",
+                        "endColumns": "12,12,12,12,12",
+                        "endOffsets": "280,423,576,713,860"
+                    }
+                }
+            ]
+        }
+    ]
+}
