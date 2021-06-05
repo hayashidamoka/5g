@@ -1,4 +1,4 @@
-package jp.co.pannacotta.fiveg
+package com.teampansaru.fiveg
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("jp.co.pannacotta.fiveg", appContext.packageName)
+        assertEquals("com.teampansaru.fiveg", appContext.packageName)
     }
 }
