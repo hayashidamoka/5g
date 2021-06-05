@@ -11,4 +11,17 @@
     <color name="light_blue_200">#FF81D4FA</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="textColor">#ffffff</color>
+    <color name="walk_through_1">#A29BFE</color>
+    <color name="walk_through_2">#74B9FF</color>
+    <color name="walk_through_3">#1ae9af</color>
+    <color name="walk_through_4">#1e28af</color>
+
+    <color name="indicatorColor">#dce0e3</color>
+    <color name="activeIndicatorColor">#abb4bb</color>
 </resources>

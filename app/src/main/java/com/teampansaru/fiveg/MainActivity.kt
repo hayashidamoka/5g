@@ -13,23 +13,74 @@ import android.telephony.PhoneStateListener
 import android.telephony.TelephonyDisplayInfo
 import android.telephony.TelephonyDisplayInfo.*
 import android.telephony.TelephonyManager
+import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.viewpager.widget.ViewPager
+import com.teampansaru.fiveg.CustomAdapter
+import com.teampansaru.fiveg.WalkThroughType
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var viewPager: ViewPager
+    lateinit var viewPagerAdapter : CustomAdapter
+    lateinit var indicatorArea : LinearLayout
+    private var indicatorViewList : ArrayList<View> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         checkPermission()
+
+
+        /**
+         * WalkThrough
+         */
+        viewPager = findViewById(R.id.viewPager)
+        viewPagerAdapter = CustomAdapter(supportFragmentManager)
+        viewPager.adapter = viewPagerAdapter
+        viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener(){
+            override fun onPageSelected(position: Int) {
+                for (i in 0 until indicatorViewList.size){
+                    if (i == position)
+                        indicatorViewList[i].background = ResourcesCompat.getDrawable(resources,R.drawable.indicator_active, null)
+                    else
+                        indicatorViewList[i].background = ResourcesCompat.getDrawable(resources,R.drawable.indicator_inactive, null)
+
+                }
+            }
+        })
+        indicatorArea = findViewById(R.id.indicator_area)
+        val indicatorWidth = resources.getDimension(R.dimen.walk_through_indicator_size).toInt()
+        val indicatorHeight = resources.getDimension(R.dimen.walk_through_indicator_size).toInt()
+        val indicatorMarginStart = resources.getDimension(R.dimen.walk_through_indicator_margin_start).toInt()
+        for (i in 0 until WalkThroughType.values().size){
+            var view = View(this)
+            if (i == 0){
+                view.background = getDrawable(R.drawable.indicator_active)
+                val layoutParams = LinearLayout.LayoutParams(indicatorWidth, indicatorHeight)
+                view.layoutParams = layoutParams
+            }else {
+                view.background = getDrawable(R.drawable.indicator_inactive)
+                val layoutParams = LinearLayout.LayoutParams(indicatorWidth,indicatorHeight)
+                layoutParams.marginStart = indicatorMarginStart
+                view.layoutParams = layoutParams
+            }
+            indicatorArea.addView(view)
+            indicatorViewList.add(view)
+        }
+
     }
 
     private fun checkPermission() {
@@ -98,6 +149,8 @@ class MainActivity : AppCompatActivity() {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
+
+
 
     private fun getNetworkType() {
         val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager

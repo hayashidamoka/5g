@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">5爺</string>
+
+    <string name="first_fragment_title">電話を許可して</string>
+    <string name="second_fragment_title">ウィジェットに追加！！</string>
+    <string name="third_fragment_title">wi-fiを消して５Gエリアに入ると</string>
+    <string name="fourth_fragment_title">じじいが踊る！</string>
+
 </resources>

@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/furukawakaito/.gradle/caches/transforms-2/files-2.1/826664819c6af6aa5d45bf1f67527754/preference-1.0.0/res/values-sw360dp-v13/values-sw360dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,127",
+                        "endColumns": "71,64",
+                        "endOffsets": "122,187"
+                    }
+                },
+                {
+                    "source": "/Users/furukawakaito/.gradle/caches/transforms-2/files-2.1/548a2141bd26dd0b46e4b0b9bbcef2c4/jetified-welcome-1.4.1/res/values-sw360dp-v13/values-sw360dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,110",
+                        "endColumns": "54,51",
+                        "endOffsets": "105,157"
+                    },
+                    "to": {
+                        "startLines": "4,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "192,247",
+                        "endColumns": "54,51",
+                        "endOffsets": "242,294"
+                    }
+                }
+            ]
+        }
+    ]
+}
