@@ -8,7 +8,6 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import jp.co.pannacotta.fiveg.R
 
 class WalkThroughFragment : Fragment() {
     var walkThroughType : WalkThroughType? = null
