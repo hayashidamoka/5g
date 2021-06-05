@@ -20,6 +20,9 @@ public final class FragmentWalkThroughBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final TextView description;
+
+  @NonNull
   public final FrameLayout frameLayout;
 
   @NonNull
@@ -28,9 +31,10 @@ public final class FragmentWalkThroughBinding implements ViewBinding {
   @NonNull
   public final TextView title;
 
-  private FragmentWalkThroughBinding(@NonNull FrameLayout rootView,
+  private FragmentWalkThroughBinding(@NonNull FrameLayout rootView, @NonNull TextView description,
       @NonNull FrameLayout frameLayout, @NonNull ImageView imageView, @NonNull TextView title) {
     this.rootView = rootView;
+    this.description = description;
     this.frameLayout = frameLayout;
     this.imageView = imageView;
     this.title = title;
@@ -63,6 +67,12 @@ public final class FragmentWalkThroughBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.description;
+      TextView description = rootView.findViewById(id);
+      if (description == null) {
+        break missingId;
+      }
+
       FrameLayout frameLayout = (FrameLayout) rootView;
 
       id = R.id.imageView;
@@ -77,7 +87,8 @@ public final class FragmentWalkThroughBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentWalkThroughBinding((FrameLayout) rootView, frameLayout, imageView, title);
+      return new FragmentWalkThroughBinding((FrameLayout) rootView, description, frameLayout,
+          imageView, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

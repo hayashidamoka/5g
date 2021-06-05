@@ -9,7 +9,8 @@ enum class WalkThroughType{
     First,
     Second,
     Third,
-    Fourth
+    Fourth,
+    Fifth
 }
 
 const  val WalkThroughTypeKey = "WalkThroughType"
