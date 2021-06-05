@@ -51,12 +51,12 @@ class NetworkService : Service() {
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         val builder = NotificationCompat.Builder(
             applicationContext,
-            createNotificationChannel("fiveg", "oyaji")
+            createNotificationChannel("fiveg", getString(R.string.fiveg))
         )
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle("たいとる")
-            .setContentText("こんてんと")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentTitle(getString(R.string.fiveg))
+            .setContentText(getString(R.string.fiveg_notification_text))
+            .setPriority(NotificationManager.IMPORTANCE_LOW)
         startForeground(100, builder.build())
         telephonyManager = getSystemService(TELEPHONY_SERVICE) as TelephonyManager
         startListening()

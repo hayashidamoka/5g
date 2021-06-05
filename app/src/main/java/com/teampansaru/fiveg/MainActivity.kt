@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 getNetworkType()
             }
         } else {
-            Toast.makeText(this, "APIレベルがたりません。", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.not_enough_api), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                 getNetworkType()
             } else {
                 // パーミッションのリクエストに対して許可せずアプリに戻った場合、ここが走る
-                Toast.makeText(this, "パーミッションが許可されていません。", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.not_allowed_permission), Toast.LENGTH_SHORT).show()
                 // FIXME 再度ダイアログを出すかIntentで走るか。
 //                permissionIntent()
             }
