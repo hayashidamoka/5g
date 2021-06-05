@@ -61,13 +61,13 @@ class WalkThroughFragment : Fragment() {
             WalkThroughType.Fourth -> {
                 title.text = getText(R.string.fourth_fragment_title)
                 linearLayout.setBackgroundResource(R.color.walk_through_1)
-                imageView.setImageResource(R.drawable.five_g_pose)
+                imageView.setImageResource(R.drawable.five_g_dance)
                 description.text = getText(R.string.fourth_fragment_description)
             }
             WalkThroughType.Fifth -> {
                 title.text = getText(R.string.fifth_fragment_title)
                 linearLayout.setBackgroundResource(R.color.walk_through_1)
-                imageView.setImageResource(R.drawable.five_g_dance)
+                imageView.setImageResource(R.drawable.five_g_pose)
                 description.text = getText(R.string.fifth_fragment_description)
                 description.textSize = 20F
 
