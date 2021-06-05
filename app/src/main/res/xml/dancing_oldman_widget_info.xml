@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/dancing_oldman_widget"
+    android:initialLayout="@layout/dancing_oldman_widget"
+    android:minWidth="120dp"
+    android:minHeight="120dp"
+    android:previewImage="@drawable/other"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="86400000"
+    android:widgetCategory="home_screen"/>
