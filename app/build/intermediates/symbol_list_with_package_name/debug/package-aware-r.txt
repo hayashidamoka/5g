@@ -1666,6 +1666,7 @@ dimen tooltip_precise_anchor_threshold
 dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
+dimen walk_through_description_text_size
 dimen walk_through_indicator_area_height
 dimen walk_through_indicator_area_margin_bottom
 dimen walk_through_indicator_margin_start
@@ -1768,6 +1769,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable add_widget
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -1838,6 +1840,8 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable example_appwidget_preview
+drawable five_g_dance
+drawable five_g_pose
 drawable fiveg
 drawable ic_arrow_down_24dp
 drawable ic_clock_black_24dp
@@ -1894,6 +1898,7 @@ drawable wel_ic_chevron_left_white_24dp
 drawable wel_ic_chevron_right_white_24dp
 drawable wel_ic_done_black
 drawable wel_ic_done_white
+drawable wifi_off
 id ALT
 id BOTTOM_END
 id BOTTOM_START

@@ -47,26 +47,27 @@ class WalkThroughFragment : Fragment() {
             }
             WalkThroughType.Second -> {
                 title.text = getText(R.string.second_fragment_title)
-                linearLayout.setBackgroundResource(R.color.walk_through_2)
-                imageView.setImageResource(R.drawable.dance2)
+                linearLayout.setBackgroundResource(R.color.walk_through_1)
+                imageView.setImageResource(R.drawable.add_widget)
                 description.text = getText(R.string.second_fragment_description)
+                description.textSize = 20F
             }
             WalkThroughType.Third -> {
                 title.text = getText(R.string.third_fragment_title)
-                linearLayout.setBackgroundResource(R.color.walk_through_3)
-                imageView.setImageResource(R.drawable.dance3)
+                linearLayout.setBackgroundResource(R.color.walk_through_1)
+                imageView.setImageResource(R.drawable.wifi_off)
                 description.text = getText(R.string.third_fragment_description)
             }
             WalkThroughType.Fourth -> {
                 title.text = getText(R.string.fourth_fragment_title)
-                linearLayout.setBackgroundResource(R.color.walk_through_4)
-                imageView.setImageResource(R.drawable.dance4)
+                linearLayout.setBackgroundResource(R.color.walk_through_1)
+                imageView.setImageResource(R.drawable.five_g_pose)
                 description.text = getText(R.string.fourth_fragment_description)
             }
             WalkThroughType.Fifth -> {
                 title.text = getText(R.string.fifth_fragment_title)
-                linearLayout.setBackgroundResource(R.color.walk_through_5)
-                imageView.setImageResource(R.drawable.dance5)
+                linearLayout.setBackgroundResource(R.color.walk_through_1)
+                imageView.setImageResource(R.drawable.five_g_dance)
                 description.text = getText(R.string.fifth_fragment_description)
 
             }

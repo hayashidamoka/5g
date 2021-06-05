@@ -2,7 +2,7 @@
     <string name="app_name">5爺</string>
 
     <string name="first_fragment_description">電話を許可して</string>
-    <string name="second_fragment_description">ウィジェットに追加！！</string>
+    <string name="second_fragment_description">ウィジェットをホーム画面に追加！！</string>
     <string name="third_fragment_description">wi-fiを消して５Gエリアに入ると</string>
     <string name="fourth_fragment_description">じじいが構える！</string>
     <string name="fifth_fragment_description">画像をタップし続けるとじじいが踊る！</string>
