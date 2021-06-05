@@ -1,4 +1,4 @@
-package jp.co.pannacotta.fiveg
+package com.teampansaru.fiveg
 
 import org.junit.Test
 
