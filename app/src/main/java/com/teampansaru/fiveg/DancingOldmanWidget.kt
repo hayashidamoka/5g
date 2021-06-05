@@ -1,4 +1,4 @@
-package jp.co.pannacotta.fiveg
+package com.teampansaru.fiveg
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
