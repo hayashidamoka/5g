@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">5爺</string>
+    <string name="not_enough_api">APIレベルがたりません。</string>
+    <string name="not_allowed_permission">パーミッションが許可されていません。</string>
+    <string name="fiveg">5爺</string>
+    <string name="fiveg_notification_text">5Gエリアに入ると爺が踊りの準備をするよ</string>
 </resources>
