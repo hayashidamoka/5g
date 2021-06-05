@@ -120,8 +120,20 @@
         "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/layout/activity_main.xml"
     },
     {
+        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_five_g_pose.png.flat",
+        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/five_g_pose.png"
+    },
+    {
         "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance25.png.flat",
         "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance25.png"
+    },
+    {
+        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_wifi_off.jpg.flat",
+        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/wifi_off.jpg"
+    },
+    {
+        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_five_g_dance.png.flat",
+        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/five_g_dance.png"
     },
     {
         "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -250,6 +262,10 @@
     {
         "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance24.png.flat",
         "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance24.png"
+    },
+    {
+        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_add_widget.png.flat",
+        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/add_widget.png"
     },
     {
         "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance52.png.flat",
