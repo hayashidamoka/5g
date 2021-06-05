@@ -1247,6 +1247,7 @@ color walk_through_1
 color walk_through_2
 color walk_through_3
 color walk_through_4
+color walk_through_5
 color wel_button_background_theme_dark
 color wel_button_background_theme_light
 color wel_button_bar_background_dark
@@ -2022,6 +2023,7 @@ id decor_content_parent
 id default_activity_button
 id deltaRelative
 id dependency_ordering
+id description
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -2568,7 +2570,11 @@ string expand_button_title
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string fifth_fragment_description
+string fifth_fragment_title
+string first_fragment_description
 string first_fragment_title
+string fourth_fragment_description
 string fourth_fragment_title
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
@@ -2629,9 +2635,11 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
+string second_fragment_description
 string second_fragment_title
 string status_bar_notification_info_overflow
 string summary_collapsed_preference_list
+string third_fragment_description
 string third_fragment_title
 string v7_preference_off
 string v7_preference_on

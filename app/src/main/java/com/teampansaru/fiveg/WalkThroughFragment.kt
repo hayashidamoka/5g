@@ -35,28 +35,40 @@ class WalkThroughFragment : Fragment() {
 
         val linearLayout: FrameLayout = argView.findViewById(R.id.frame_layout)
         val imageView: ImageView = argView.findViewById(R.id.imageView)
-        val textView: TextView = argView.findViewById(R.id.title)
+        val description: TextView = argView.findViewById(R.id.description)
+        val title: TextView = argView.findViewById(R.id.title)
 
         when (walkThroughType) {
             WalkThroughType.First -> {
+                title.text = getText(R.string.first_fragment_title)
                 linearLayout.setBackgroundResource(R.color.walk_through_1)
                 imageView.setImageResource(R.drawable.phone_accept)
-                textView.text = getText(R.string.first_fragment_title)
+                description.text = getText(R.string.first_fragment_description)
             }
             WalkThroughType.Second -> {
+                title.text = getText(R.string.second_fragment_title)
                 linearLayout.setBackgroundResource(R.color.walk_through_2)
                 imageView.setImageResource(R.drawable.dance2)
-                textView.text = getText(R.string.second_fragment_title)
+                description.text = getText(R.string.second_fragment_description)
             }
             WalkThroughType.Third -> {
+                title.text = getText(R.string.third_fragment_title)
                 linearLayout.setBackgroundResource(R.color.walk_through_3)
                 imageView.setImageResource(R.drawable.dance3)
-                textView.text = getText(R.string.third_fragment_title)
+                description.text = getText(R.string.third_fragment_description)
             }
             WalkThroughType.Fourth -> {
+                title.text = getText(R.string.fourth_fragment_title)
                 linearLayout.setBackgroundResource(R.color.walk_through_4)
                 imageView.setImageResource(R.drawable.dance4)
-                textView.text = getText(R.string.fourth_fragment_title)
+                description.text = getText(R.string.fourth_fragment_description)
+            }
+            WalkThroughType.Fifth -> {
+                title.text = getText(R.string.fifth_fragment_title)
+                linearLayout.setBackgroundResource(R.color.walk_through_5)
+                imageView.setImageResource(R.drawable.dance5)
+                description.text = getText(R.string.fifth_fragment_description)
+
             }
         }
     }
