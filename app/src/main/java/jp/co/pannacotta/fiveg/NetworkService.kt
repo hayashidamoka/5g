@@ -26,7 +26,7 @@ class NetworkService : Service() {
         const val INIT = "INIT"
         private const val OYAJI_CLICKED = "OYAJI_CLICKED"
         // 最後の踊り画像の数字(R.drawable.dance? の一番大きい数字を設定する)
-        private const val FINAL_DANCE_INDEX = 2
+        private const val FINAL_DANCE_INDEX = 53
     }
 
     // 今何枚目の画像か　R.drawable.dance1 から始まるので1で初期化
