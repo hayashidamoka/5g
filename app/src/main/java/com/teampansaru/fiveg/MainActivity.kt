@@ -1,4 +1,4 @@
-package jp.co.pannacotta.fiveg
+package com.teampansaru.fiveg
 
 import android.Manifest
 import android.Manifest.permission.READ_PHONE_STATE

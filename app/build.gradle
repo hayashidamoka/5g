@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "jp.co.pannacotta.fiveg"
+        applicationId "com.teampansaru.fiveg"
         minSdkVersion 30
         targetSdkVersion 30
         versionCode 1
