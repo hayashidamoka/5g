@@ -12,7 +12,9 @@ import android.net.ConnectivityManager.NetworkCallback
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
+import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
 import android.telephony.PhoneStateListener
 import android.telephony.SubscriptionManager
 import android.telephony.TelephonyDisplayInfo
@@ -208,6 +210,39 @@ class NetworkService : Service() {
         val manager = AppWidgetManager.getInstance(applicationContext)
         val widgetId = ComponentName(applicationContext, DancingOldmanWidget::class.java)
         manager.updateAppWidget(widgetId, remoteViews)
+
+
+
+
+//        if (intent.action == OYAJI_CLICKED) {
+//            Log.d("ろぐ", "くりっく")
+//            if(!isFiveg) {
+//                return
+//            }
+//
+//            //連打防止
+//            remoteViews.setBoolean(R.id.transparent_button, "setEnabled", false)
+//            Handler(Looper.getMainLooper()).postDelayed({
+//                remoteViews.setBoolean(R.id.transparent_button, "setEnabled", true)
+//                remoteViews.setImageViewResource(
+//                    R.id.oyaji_image_view, applicationContext.resources.getIdentifier(
+//                        "dance$currentDanceIndex", "drawable", applicationContext.packageName
+//                    )
+//                )
+//                if (currentDanceIndex == FINAL_DANCE_INDEX) {
+//                    currentDanceIndex = 1
+//                } else {
+//                    currentDanceIndex++
+//                }
+//                Log.d("ろぐ", "くりっく$currentDanceIndex")
+//            }, 1000)
+//        }
+//        val manager = AppWidgetManager.getInstance(applicationContext)
+//                val widgetId = ComponentName(applicationContext, DancingOldmanWidget::class.java)
+//                manager.updateAppWidget(widgetId, remoteViews)
+//    }
+
+
     }
 
     private fun updateWidget(imageResId: Int) {
