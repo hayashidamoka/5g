@@ -53,7 +53,7 @@ class NetworkService : Service() {
             applicationContext,
             createNotificationChannel("fiveg", getString(R.string.fiveg))
         )
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.mipmap.ic_stat_fiveg_notification_icon)
             .setContentTitle(getString(R.string.fiveg))
             .setContentText(getString(R.string.fiveg_notification_text))
             .setPriority(NotificationManager.IMPORTANCE_LOW)
