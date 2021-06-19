@@ -17,7 +17,6 @@ import android.telephony.PhoneStateListener
 import android.telephony.SubscriptionManager
 import android.telephony.TelephonyDisplayInfo
 import android.telephony.TelephonyManager
-import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 
@@ -59,7 +58,9 @@ class NetworkService : Service() {
             .setPriority(NotificationManager.IMPORTANCE_LOW)
         startForeground(100, builder.build())
         telephonyManager = getSystemService(TELEPHONY_SERVICE) as TelephonyManager
-        startListening()
+        if(INIT == intent.action) {
+            startListening()
+        }
         updateWidget(intent)
         return super.onStartCommand(intent, flags, startId)
     }
@@ -136,7 +137,6 @@ class NetworkService : Service() {
                     isFiveg = true
                     currentDanceIndex = 1
                     updateWidget(R.drawable.fiveg)
-                    Log.d("ろぐ", "構え")
                 }
             } else {
                 // 棒立ち画像
@@ -181,7 +181,6 @@ class NetworkService : Service() {
         val remoteViews =
             RemoteViews(applicationContext.packageName, R.layout.dancing_oldman_widget)
         if (intent.action == INIT) {
-            Log.d("ろぐ", "いにっと")
             remoteViews.setImageViewResource(R.id.oyaji_image_view, R.drawable.other)
             val clickIntent = Intent(applicationContext, this.javaClass) //明示的インテント
             clickIntent.action = OYAJI_CLICKED
@@ -189,7 +188,6 @@ class NetworkService : Service() {
             remoteViews.setOnClickPendingIntent(R.id.transparent_button, pendingIntent)
         }
         if (intent.action == OYAJI_CLICKED) {
-            Log.d("ろぐ", "くりっく")
             if(!isFiveg) {
                 return
             }
@@ -203,7 +201,6 @@ class NetworkService : Service() {
             } else {
                 currentDanceIndex++
             }
-            Log.d("ろぐ", "くりっく$currentDanceIndex")
         }
         val manager = AppWidgetManager.getInstance(applicationContext)
         val widgetId = ComponentName(applicationContext, DancingOldmanWidget::class.java)
