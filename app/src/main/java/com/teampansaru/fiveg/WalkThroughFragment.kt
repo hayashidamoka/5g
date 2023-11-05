@@ -71,6 +71,8 @@ class WalkThroughFragment : Fragment() {
                 description.textSize = 20F
 
             }
+
+            else -> {}
         }
     }
 }

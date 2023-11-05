@@ -1,326 +1,326 @@
 [
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance3.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance3.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance8.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance8.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance49.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance49.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_indicator_inactive.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/indicator_inactive.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance53.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance53.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance53.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance53.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance23.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance23.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_wifi_off.jpg.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/wifi_off.jpg"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance38.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance38.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance49.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance49.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_indicator_inactive.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/indicator_inactive.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/layout_dancing_oldman_widget.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/layout/dancing_oldman_widget.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_phone_accept.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/phone_accept.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance23.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance23.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable-nodpi_example_appwidget_preview.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable-nodpi/example_appwidget_preview.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance7.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance7.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-mdpi_ic_stat_fiveg_notification_icon.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-mdpi/ic_stat_fiveg_notification_icon.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance26.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance26.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-mdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_five_g_pose.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/five_g_pose.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance31.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance31.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-xxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance45.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance45.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance26.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance26.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/layout_fragment_walk_through.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/layout/fragment_walk_through.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance31.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance31.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance50.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance50.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance45.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance45.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_indicator_active.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/indicator_active.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance50.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance50.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance15.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance15.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/xml_dancing_oldman_widget_info.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/xml/dancing_oldman_widget_info.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_indicator_active.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/indicator_active.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance42.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance42.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance1.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance1.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance34.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance34.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance15.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance15.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance42.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance42.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance22.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance22.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance34.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance34.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance35.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance35.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance29.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance29.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance20.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance20.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance48.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance48.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance18.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance18.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance16.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance16.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance52.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance52.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance12.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance12.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance11.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance11.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/layout/activity_main.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_fiveg_icon.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/fiveg_icon.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_five_g_pose.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/five_g_pose.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_five_g_dance.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/five_g_dance.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_wifi_off.jpg.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/wifi_off.jpg"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance24.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance24.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_five_g_dance.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/five_g_dance.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance37.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance37.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance25.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance25.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance4.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance4.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance43.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance43.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance19.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance19.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance30.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance30.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance41.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance41.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance33.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance33.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance14.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance14.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance4.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance4.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_add_widget.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/add_widget.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance40.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance40.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance46.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance46.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable-nodpi_example_appwidget_preview.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable-nodpi/example_appwidget_preview.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-xhdpi_ic_stat_fiveg_notification_icon.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-xhdpi/ic_stat_fiveg_notification_icon.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance17.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance17.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance27.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance27.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance21.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance21.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance7.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance7.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/ic_launcher_background.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance40.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance40.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance21.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance21.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance36.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance36.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_fiveg.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/fiveg.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance36.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance36.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_other.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/other.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-hdpi_ic_stat_fiveg_notification_icon.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-hdpi/ic_stat_fiveg_notification_icon.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance1.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance1.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance32.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance32.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance32.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance32.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance44.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance44.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance17.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance17.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance51.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance51.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance51.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance51.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_fiveg.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/fiveg.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance44.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance44.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance39.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance39.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_phone_accept.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/phone_accept.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance8.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance8.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance13.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance13.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance39.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance39.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance10.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance10.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_other.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/other.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance28.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance28.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/layout_activity_main.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/layout/activity_main.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance3.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance3.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance5.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance5.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance13.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance13.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance10.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance10.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance47.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance47.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance28.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance28.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/xml_dancing_oldman_widget_info.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/xml/dancing_oldman_widget_info.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-xxxhdpi_ic_stat_fiveg_notification_icon.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-xxxhdpi/ic_stat_fiveg_notification_icon.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance2.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance2.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-xhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance20.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance20.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance6.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance6.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance24.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance24.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance47.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance47.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_add_widget.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/add_widget.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/mipmap-xxhdpi_ic_stat_fiveg_notification_icon.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/mipmap-xxhdpi/ic_stat_fiveg_notification_icon.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance52.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance52.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance35.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance35.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance6.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance6.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance22.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance22.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance11.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance11.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance29.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance29.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance18.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance18.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance9.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance9.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance37.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance37.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance16.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance16.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance48.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance48.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance43.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance43.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance5.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance5.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance30.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance30.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/layout_fragment_walk_through.xml.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/layout/fragment_walk_through.xml"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance33.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance33.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance12.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance12.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance14.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance14.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance25.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance25.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance46.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance46.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance38.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance38.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/layout_dancing_oldman_widget.xml.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/layout/dancing_oldman_widget.xml"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance19.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance19.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance9.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance9.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance2.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance2.png"
     },
     {
-        "merged": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/res/merged/debug/drawable_dance27.png.flat",
-        "source": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/res/drawable/dance27.png"
+        "merged": "com.teampansaru.fiveg.app-merged_res-14:/drawable_dance41.png.flat",
+        "source": "com.teampansaru.fiveg.app-main-16:/drawable/dance41.png"
     }
 ]

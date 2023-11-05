@@ -1,93 +1,97 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="jp.co.pannacotta.fiveg"
-4    android:versionCode="1"
-5    android:versionName="1.0" >
+3    package="com.teampansaru.fiveg"
+4    android:versionCode="2"
+5    android:versionName="1.1" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="30"
-8-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml
-9        android:targetSdkVersion="30" />
-9-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-11-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:5:5-79
-11-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:5:22-76
+11-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:5:5-79
+11-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:5:22-76
 12    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-12-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:6:5-75
-12-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:6:22-72
+12-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:6:5-75
+12-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:6:22-72
 13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-13-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:7:5-77
-13-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:7:22-74
+13-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:7:5-77
+13-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:7:22-74
 14
 15    <application
-15-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:9:5-40:19
+15-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:9:5-42:19
 16        android:allowBackup="true"
-16-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:10:9-35
+16-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:10:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-17-->[androidx.core:core:1.5.0] /Users/furukawakaito/.gradle/caches/transforms-2/files-2.1/4e9365d494d5387b456f1440e29ee65c/core-1.5.0/AndroidManifest.xml:24:18-86
+17-->[androidx.core:core:1.5.0] /Users/nagaoyuriko/.gradle/caches/transforms-3/cde43a1c3f1adf5b16898eb0c6cb6446/transformed/core-1.5.0/AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
 19        android:extractNativeLibs="false"
 20        android:icon="@mipmap/ic_launcher"
-20-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:11:9-43
+20-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:11:9-43
 21        android:label="@string/app_name"
-21-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:12:9-41
+21-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:12:9-41
 22        android:roundIcon="@mipmap/ic_launcher_round"
-22-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:13:9-54
+22-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:13:9-54
 23        android:supportsRtl="true"
-23-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:14:9-35
+23-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:14:9-35
 24        android:testOnly="true"
 25        android:theme="@style/Theme.Fiveg" >
-25-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:15:9-43
-26        <receiver android:name="jp.co.pannacotta.fiveg.DancingOldmanWidget" >
-26-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:16:9-25:20
-26-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:16:19-54
-27            <intent-filter>
-27-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:17:13-20:29
-28                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-28-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:18:17-84
-28-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:18:25-81
-29                <action android:name="jp.co.pannacotta.fiveg.OYAJI_CLICKED" />
-29-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:19:17-79
-29-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:19:25-76
-30            </intent-filter>
-31
-32            <meta-data
-32-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:22:13-24:70
-33                android:name="android.appwidget.provider"
-33-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:23:17-58
-34                android:resource="@xml/dancing_oldman_widget_info" />
-34-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:24:17-67
-35        </receiver>
-36
-37        <service android:name="jp.co.pannacotta.fiveg.NetworkService" >
-37-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:26:9-30:19
-37-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:26:18-48
-38            <intent-filter>
-38-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:27:13-29:29
-39                <action android:name="jp.co.pannacotta.fiveg.OYAJI_CLICKED" />
-39-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:19:17-79
-39-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:19:25-76
-40            </intent-filter>
-41        </service>
-42
-43        <activity
-43-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:32:9-39:20
-44            android:name="jp.co.pannacotta.fiveg.MainActivity"
-44-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:32:19-47
-45            android:theme="@style/WelcomeScreenTheme" >
-45-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:33:13-54
-46            <intent-filter>
-46-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:34:13-38:29
-47                <action android:name="android.intent.action.MAIN" />
-47-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:35:17-69
-47-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:35:25-66
-48
-49                <category android:name="android.intent.category.LAUNCHER" />
-49-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:37:17-77
-49-->/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/src/main/AndroidManifest.xml:37:27-74
-50            </intent-filter>
-51        </activity>
-52    </application>
-53
-54</manifest>
+25-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:15:9-43
+26        <receiver
+26-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:16:9-26:20
+27            android:name="com.teampansaru.fiveg.DancingOldmanWidget"
+27-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:16:19-54
+28            android:exported="true" >
+28-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:17:13-36
+29            <intent-filter>
+29-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:18:13-21:29
+30                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+30-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:19:17-84
+30-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:19:25-81
+31                <action android:name="com.teampansaru.fiveg.OYAJI_CLICKED" />
+31-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:20:17-78
+31-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:20:25-75
+32            </intent-filter>
+33
+34            <meta-data
+34-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:23:13-25:70
+35                android:name="android.appwidget.provider"
+35-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:24:17-58
+36                android:resource="@xml/dancing_oldman_widget_info" />
+36-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:25:17-67
+37        </receiver>
+38
+39        <service
+39-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:27:9-32:19
+40            android:name="com.teampansaru.fiveg.NetworkService"
+40-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:27:18-48
+41            android:exported="true" >
+41-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:28:13-36
+42            <intent-filter>
+42-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:29:13-31:29
+43                <action android:name="com.teampansaru.fiveg.OYAJI_CLICKED" />
+43-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:20:17-78
+43-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:20:25-75
+44            </intent-filter>
+45        </service>
+46
+47        <activity
+47-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:34:9-41:20
+48            android:name="com.teampansaru.fiveg.MainActivity"
+48-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:34:19-47
+49            android:exported="true" >
+49-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:35:13-36
+50            <intent-filter>
+50-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:36:13-40:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:37:17-69
+51-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:37:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:39:17-77
+53-->/Users/nagaoyuriko/Development/Android/5g/app/src/main/AndroidManifest.xml:39:27-74
+54            </intent-filter>
+55        </activity>
+56    </application>
+57
+58</manifest>

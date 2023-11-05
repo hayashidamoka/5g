@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w360dp-port-v13/values-w360dp-port-v13.xml",
+            "outputFile": "com.teampansaru.fiveg.app-mergeDebugResources-12:/values-w360dp-port-v13/values-w360dp-port-v13.xml",
             "map": [
                 {
-                    "source": "/Users/furukawakaito/.gradle/caches/transforms-2/files-2.1/10a1fd9a43e78ddadba51799567f760e/material-1.3.0/res/values-w360dp-port-v13/values-w360dp-port-v13.xml",
+                    "source": "/Users/nagaoyuriko/.gradle/caches/transforms-3/06ff8f8a0cdac12b0ce3b29cbae4df6b/transformed/material-1.3.0/res/values-w360dp-port-v13/values-w360dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
