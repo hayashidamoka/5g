@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.co.pannacotta.fiveg"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.teampansaru.fiveg"
+    android:versionCode="2"
+    android:versionName="1.1" >
 
     <uses-sdk
         android:minSdkVersion="30"
-        android:targetSdkVersion="30" />
+        android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -23,10 +23,12 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Fiveg" >
-        <receiver android:name="jp.co.pannacotta.fiveg.DancingOldmanWidget" >
+        <receiver
+            android:name="com.teampansaru.fiveg.DancingOldmanWidget"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="jp.co.pannacotta.fiveg.OYAJI_CLICKED" />
+                <action android:name="com.teampansaru.fiveg.OYAJI_CLICKED" />
             </intent-filter>
 
             <meta-data
@@ -34,15 +36,17 @@
                 android:resource="@xml/dancing_oldman_widget_info" />
         </receiver>
 
-        <service android:name="jp.co.pannacotta.fiveg.NetworkService" >
+        <service
+            android:name="com.teampansaru.fiveg.NetworkService"
+            android:exported="true" >
             <intent-filter>
-                <action android:name="jp.co.pannacotta.fiveg.OYAJI_CLICKED" />
+                <action android:name="com.teampansaru.fiveg.OYAJI_CLICKED" />
             </intent-filter>
         </service>
 
         <activity
-            android:name="jp.co.pannacotta.fiveg.MainActivity"
-            android:theme="@style/WelcomeScreenTheme" >
+            android:name="com.teampansaru.fiveg.MainActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

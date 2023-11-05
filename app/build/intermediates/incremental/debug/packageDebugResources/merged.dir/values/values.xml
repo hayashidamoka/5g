@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="activeIndicatorColor">#abb4bb</color>
+    <color name="black">#FF000000</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="ic_launcher_background">#03A2F5</color>
+    <color name="indicatorColor">#dce0e3</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="textColor">#ffffff</color>
+    <color name="walk_through_1">#A29BFE</color>
+    <color name="walk_through_2">#74B9FF</color>
+    <color name="walk_through_3">#1ae9af</color>
+    <color name="walk_through_4">#1e28af</color>
+    <color name="walk_through_5">#A28f</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="walk_through_description_text_size">25dp</dimen>
+    <dimen name="walk_through_indicator_area_height">30dp</dimen>
+    <dimen name="walk_through_indicator_area_margin_bottom">20dp</dimen>
+    <dimen name="walk_through_indicator_margin_start">10dp</dimen>
+    <dimen name="walk_through_indicator_radius">5dp</dimen>
+    <dimen name="walk_through_indicator_size">10dp</dimen>
+    <dimen name="walk_through_title_margin_bottom">80dp</dimen>
+    <dimen name="walk_through_title_text_size">35dp</dimen>
+    <string name="app_name">5爺</string>
+    <string name="fifth_fragment_description">画像をタップし続けるとじじいが踊る！</string>
+    <string name="fifth_fragment_title">使い方⑤</string>
+    <string name="first_fragment_description">電話を許可して</string>
+    <string name="first_fragment_title">使い方①</string>
+    <string name="fiveg">5爺</string>
+    <string name="fiveg_notification_text">5Gエリアに入ると爺が踊りの準備をするよ</string>
+    <string name="fourth_fragment_description">じじいが構える！</string>
+    <string name="fourth_fragment_title">使い方④</string>
+    <string name="not_allowed_permission">パーミッションが許可されていません。</string>
+    <string name="not_enough_api">APIレベルがたりません。</string>
+    <string name="second_fragment_description">ウィジェットをホーム画面に追加！！</string>
+    <string name="second_fragment_title">使い方②</string>
+    <string name="third_fragment_description">wi-fiを消して５Gエリアに入ると</string>
+    <string name="third_fragment_title">使い方③</string>
+    <style name="Theme.Fiveg" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+    <style name="ThemeOverlay.Fiveg.AppWidgetContainer" parent="">
+        <item name="appWidgetBackgroundColor">#00000000</item>
+    </style>
+    <declare-styleable name="AppWidgetAttrs">
+        <attr format="color" name="appWidgetBackgroundColor"/>
+        <attr format="color" name="appWidgetTextColor"/>
+    </declare-styleable>
+</resources>
