@@ -1,7 +1,0 @@
-#Sat Jun 05 19:32:37 JST 2021
-base.1=/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
-path.1=classes.dex
-base.0=/Users/furukawakaito/Documents/AndroidAppProjects/5g/5g/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-renamed.1=classes2.dex
-renamed.0=classes.dex
-path.0=classes.dex
