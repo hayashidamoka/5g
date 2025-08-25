@@ -184,7 +184,7 @@ class NetworkService : Service() {
             remoteViews.setImageViewResource(R.id.oyaji_image_view, R.drawable.other)
             val clickIntent = Intent(applicationContext, this.javaClass) //明示的インテント
             clickIntent.action = OYAJI_CLICKED
-            val pendingIntent = PendingIntent.getService(applicationContext, 0, clickIntent, 0)
+            val pendingIntent = PendingIntent.getService(applicationContext, 0, clickIntent, PendingIntent.FLAG_IMMUTABLE)
             remoteViews.setOnClickPendingIntent(R.id.transparent_button, pendingIntent)
         }
         if (intent.action == OYAJI_CLICKED) {
