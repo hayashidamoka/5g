@@ -22,9 +22,10 @@ class WalkThroughFragment : Fragment() {
     * 表示するフラグメントの種類（WalkThroughType）に応じて View を変更している。
     * */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        arguments?.takeIf { it.containsKey(WalkThroughTypeKey) }?.apply {
-            walkThroughType = WalkThroughType.values().mapNotNull {
-                if (getInt(WalkThroughTypeKey) == it.ordinal) it else null}.first()
+        requireArguments().takeIf { it.containsKey(WalkThroughTypeKey) }?.apply {
+            walkThroughType = WalkThroughType.entries.toTypedArray().firstNotNullOf {
+                if (getInt(WalkThroughTypeKey) == it.ordinal) it else null
+            }
             initWalkThroughPage(view)
         }
 

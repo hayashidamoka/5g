@@ -17,13 +17,14 @@ const  val WalkThroughTypeKey = "WalkThroughType"
 
 class CustomAdapter (fm : FragmentManager) : FragmentPagerAdapter(fm){
 
-    override fun getCount(): Int = WalkThroughType.values().size
+    override fun getCount(): Int = WalkThroughType.entries.size
 
     override fun getItem(position: Int): Fragment {
         val fragment = WalkThroughFragment()
         fragment.arguments = Bundle().apply {
             putInt(WalkThroughTypeKey,
-                WalkThroughType.values().mapNotNull { if (position == it.ordinal) it.ordinal else null}.first())
+                WalkThroughType.entries.toTypedArray()
+                    .firstNotNullOf { if (position == it.ordinal) it.ordinal else null })
         }
         return fragment
     }
