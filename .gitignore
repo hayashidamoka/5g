@@ -1,12 +1,7 @@
 *.iml
 .gradle
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+.idea/
 .DS_Store
 /build
 /captures
@@ -19,12 +14,3 @@ app/build/
 build/
 *.apk
 *.aab
-
-# IDE specific files
-.idea/gradle.xml
-.idea/misc.xml
-.idea/compiler.xml
-.idea/deploymentTargetSelector.xml
-.idea/jarRepositories.xml
-.idea/kotlinc.xml
-.idea/vcs.xml
