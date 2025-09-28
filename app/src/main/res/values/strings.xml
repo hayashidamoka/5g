@@ -18,8 +18,12 @@
 
 
     <string name="not_enough_api">APIレベルがたりません。</string>
-    <string name="not_allowed_permission">パーミッションが許可されていません。</string>
+    <string name="not_allowed_permission">パーミッションが許可されていません。アプリを終了します。</string>
     <string name="fiveg">5爺</string>
     <string name="fiveg_notification_text">5Gエリアに入ると爺が踊りの準備をするよ</string>
+    <string name="permission_dialog_title">権限の許可が必要です</string>
+    <string name="permission_dialog_message">このアプリは電話の発信と管理の権限を必要とします。5Gネットワークの状態を監視するために使用されます。</string>
+    <string name="permission_dialog_ok">OK</string>
+    <string name="permission_dialog_close">閉じる</string>
 
 </resources>
