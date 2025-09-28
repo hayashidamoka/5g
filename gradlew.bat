@@ -1,3 +1,4 @@
+@rem Gradle Wrapper起動スクリプト (Windows用)
 @rem
 @rem Copyright 2015 the original author or authors.
 @rem
