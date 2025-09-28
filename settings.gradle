@@ -1,17 +1,28 @@
+// 5爺アプリ - プロジェクト設定
+// このファイルはマルチモジュールプロジェクトの構成を定義します
+
 pluginManagement {
+    // Gradleプラグインの取得元リポジトリ
     repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
+        google()           // Android関連プラグイン
+        mavenCentral()     // 一般的なJava/Kotlinライブラリ
+        gradlePluginPortal() // Gradleプラグイン
     }
 }
 
+dependencyResolutionManagement {
+    // プロジェクトレベルのリポジトリ定義を禁止（一元管理のため）
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+    // 依存関係の取得元リポジトリ
+    repositories {
+        google()       // Android SDK、AndroidXライブラリなど
+        mavenCentral() // Kotlin、その他のオープンソースライブラリ
+    }
+}
+
+// プロジェクトに含まれるモジュール
 include ':app'
+
+// プロジェクト名（ビルド出力やIDEでの表示に使用）
 rootProject.name = "fiveg"

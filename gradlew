@@ -1,4 +1,5 @@
 #!/bin/sh
+# Gradle Wrapper起動スクリプト (Unix/Linux/macOS用)
 
 #
 # Copyright © 2015-2021 the original authors.
