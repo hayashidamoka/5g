@@ -170,19 +170,15 @@ class MainActivity : AppCompatActivity() {
                     val label = findViewById<TextView>(R.id.network_type_label)
                     label.text = when (telephonyDisplayInfo.overrideNetworkType) {
                         TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_LTE_ADVANCED_PRO -> {
-                            replaceText(label, "LTE Advanced Pro (5Ge)")
                             "LTE Advanced Pro (5Ge)"
                         }
                         TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA -> {
-                            replaceText(label, "5G NR（Sub-6）network")
                             "5G NR（Sub-6）network"
                         }
                         TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE -> {
-                            replaceText(label, "5G mmWave（5G+ / 5G UW）network")
                             "5G mmWave（5G+ / 5G UW）network"
                         }
                         TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_LTE_CA -> {
-                            replaceText(label, "LTE")
                             "LTE"
                         }
                         else -> "other:${telephonyDisplayInfo.overrideNetworkType}"
@@ -190,11 +186,5 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }, PhoneStateListener.LISTEN_DISPLAY_INFO_CHANGED)
-    }
-
-    private fun replaceText(label: TextView, text: String) {
-        Thread {
-            label.text = text
-        }.start()
     }
 }

@@ -1,7 +1,11 @@
 package com.teampansaru.fiveg
 
 import android.Manifest
-import android.app.*
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.Service
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Intent
@@ -50,7 +54,7 @@ class NetworkService : Service() {
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         val builder = NotificationCompat.Builder(
             applicationContext,
-            createNotificationChannel("fiveg", getString(R.string.fiveg))
+            createNotificationChannel(getString(R.string.fiveg))
         )
             .setSmallIcon(R.mipmap.ic_stat_fiveg_notification_icon)
             .setContentTitle(getString(R.string.fiveg))
@@ -216,7 +220,8 @@ class NetworkService : Service() {
         manager.updateAppWidget(widgetId, remoteViews)
     }
 
-    private fun createNotificationChannel(channelId: String, channelName: String): String {
+    private fun createNotificationChannel(channelName: String): String {
+        val channelId = "fiveg"
         val channel = NotificationChannel(
             channelId,
             channelName, NotificationManager.IMPORTANCE_NONE
