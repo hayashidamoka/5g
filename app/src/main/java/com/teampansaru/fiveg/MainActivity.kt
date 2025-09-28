@@ -1,36 +1,35 @@
 package com.teampansaru.fiveg
 
-import android.Manifest
 import android.Manifest.permission.READ_PHONE_STATE
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.telephony.PhoneStateListener
 import android.telephony.TelephonyDisplayInfo
-import android.telephony.TelephonyDisplayInfo.*
 import android.telephony.TelephonyManager
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.ViewPager
-import com.teampansaru.fiveg.CustomAdapter
-import com.teampansaru.fiveg.WalkThroughType
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        private const val PERMISSION_REQUEST_CODE = 1000
+    }
 
     lateinit var viewPager: ViewPager
     lateinit var viewPagerAdapter : CustomAdapter
@@ -40,9 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         checkPermission()
-
 
         /**
          * WalkThrough
@@ -65,14 +62,14 @@ class MainActivity : AppCompatActivity() {
         val indicatorWidth = resources.getDimension(R.dimen.walk_through_indicator_size).toInt()
         val indicatorHeight = resources.getDimension(R.dimen.walk_through_indicator_size).toInt()
         val indicatorMarginStart = resources.getDimension(R.dimen.walk_through_indicator_margin_start).toInt()
-        for (i in 0 until WalkThroughType.values().size){
+        for (i in 0 until WalkThroughType.entries.size){
             var view = View(this)
             if (i == 0){
-                view.background = getDrawable(R.drawable.indicator_active)
+                view.background = AppCompatResources.getDrawable(this, R.drawable.indicator_active)
                 val layoutParams = LinearLayout.LayoutParams(indicatorWidth, indicatorHeight)
                 view.layoutParams = layoutParams
             }else {
-                view.background = getDrawable(R.drawable.indicator_inactive)
+                view.background = AppCompatResources.getDrawable(this, R.drawable.indicator_inactive)
                 val layoutParams = LinearLayout.LayoutParams(indicatorWidth,indicatorHeight)
                 layoutParams.marginStart = indicatorMarginStart
                 view.layoutParams = layoutParams
@@ -84,19 +81,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // API30以上かどうか
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    READ_PHONE_STATE
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(READ_PHONE_STATE),
-                    1000
-                )
-                if (ActivityCompat.shouldShowRequestPermissionRationale(
+        if (ContextCompat.checkSelfPermission(
+                this,
+                READ_PHONE_STATE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // パーミッション説明ダイアログを表示
+            showPermissionExplanationDialog()
+        } else {
+            // パーミッションが既に許可されている場合
+            getNetworkType()
+        }
+    }
+
+    private fun showPermissionExplanationDialog() {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.permission_dialog_title))
+            .setMessage(getString(R.string.permission_dialog_message))
+            .setCancelable(false)
+            .setPositiveButton(getString(R.string.permission_dialog_ok)) { _, _ ->
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(
                         this,
                         READ_PHONE_STATE
                     )
@@ -104,22 +108,18 @@ class MainActivity : AppCompatActivity() {
                     ActivityCompat.requestPermissions(
                         this,
                         arrayOf(READ_PHONE_STATE),
-                        1000
+                        PERMISSION_REQUEST_CODE
                     )
                 } else {
-                    ActivityCompat.requestPermissions(
-                        this,
-                        arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                        1000
-                    )
+                    // 権限が以前に拒否された場合は直接リクエスト
+                    permissionIntent()
                 }
-            } else {
-                // SDKバージョンが問題なく、全てのパーミッションが取れている場合
-                getNetworkType()
             }
-        } else {
-            Toast.makeText(this, getString(R.string.not_enough_api), Toast.LENGTH_SHORT).show()
-        }
+            .setNegativeButton(getString(R.string.permission_dialog_close)) { _, _ ->
+                // 閉じるボタンが押されたらアプリを終了
+                finish()
+            }
+            .show()
     }
 
     private fun permissionIntent() {
@@ -134,16 +134,14 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (requestCode == 1000) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
             // requestPermissionsで設定した順番で結果が格納されている
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // 許可された(されている)ので処理を続行
                 getNetworkType()
             } else {
                 // パーミッションのリクエストに対して許可せずアプリに戻った場合、ここが走る
-                Toast.makeText(this, getString(R.string.not_allowed_permission), Toast.LENGTH_SHORT).show()
-                // FIXME 再度ダイアログを出すかIntentで走るか。
-//                permissionIntent()
+                finish()
             }
             return
         }
@@ -156,7 +154,6 @@ class MainActivity : AppCompatActivity() {
         val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         telephonyManager.listen(object : PhoneStateListener() {
 
-            @RequiresApi(Build.VERSION_CODES.R)
             override fun onDisplayInfoChanged(telephonyDisplayInfo: TelephonyDisplayInfo) {
                 if (ActivityCompat.checkSelfPermission(
                         applicationContext,
@@ -172,19 +169,19 @@ class MainActivity : AppCompatActivity() {
                     // 5Gネットワークに接続しているか判別
                     val label = findViewById<TextView>(R.id.network_type_label)
                     label.text = when (telephonyDisplayInfo.overrideNetworkType) {
-                        OVERRIDE_NETWORK_TYPE_LTE_ADVANCED_PRO -> {
+                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_LTE_ADVANCED_PRO -> {
                             replaceText(label, "LTE Advanced Pro (5Ge)")
                             "LTE Advanced Pro (5Ge)"
                         }
-                        OVERRIDE_NETWORK_TYPE_NR_NSA -> {
+                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA -> {
                             replaceText(label, "5G NR（Sub-6）network")
                             "5G NR（Sub-6）network"
                         }
-                        OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE -> {
+                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE -> {
                             replaceText(label, "5G mmWave（5G+ / 5G UW）network")
                             "5G mmWave（5G+ / 5G UW）network"
                         }
-                        OVERRIDE_NETWORK_TYPE_LTE_CA -> {
+                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_LTE_CA -> {
                             replaceText(label, "LTE")
                             "LTE"
                         }
