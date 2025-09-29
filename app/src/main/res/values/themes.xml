@@ -15,6 +15,6 @@
     </style>
 
     <style name="ThemeOverlay.Fiveg.AppWidgetContainer" parent="">
-        <item name="appWidgetBackgroundColor">#00000000</item>
+        <item name="appWidgetBackgroundColor">#F0F0F0</item>
     </style>
 </resources>

@@ -1,29 +1,22 @@
 package com.teampansaru.fiveg
 
 import android.Manifest.permission.READ_PHONE_STATE
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.appwidget.AppWidgetManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.telephony.PhoneStateListener
-import android.telephony.TelephonyDisplayInfo
-import android.telephony.TelephonyManager
-import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
-import androidx.viewpager.widget.ViewPager
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import com.teampansaru.fiveg.compose.WalkthroughScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,53 +24,53 @@ class MainActivity : AppCompatActivity() {
         private const val PERMISSION_REQUEST_CODE = 1000
     }
 
-    lateinit var viewPager: ViewPager
-    lateinit var viewPagerAdapter : CustomAdapter
-    lateinit var indicatorArea : LinearLayout
-    private var indicatorViewList : ArrayList<View> = ArrayList()
+    // ViewPager関連の変数は不要になったが、将来の参照のためコメントアウト
+    // lateinit var viewPager: ViewPager
+    // lateinit var viewPagerAdapter : CustomAdapter
+    // lateinit var indicatorArea : LinearLayout
+    // private var indicatorViewList : ArrayList<View> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        checkPermission()
 
-        /**
-         * WalkThrough
-         */
-        viewPager = findViewById(R.id.viewPager)
-        viewPagerAdapter = CustomAdapter(supportFragmentManager)
-        viewPager.adapter = viewPagerAdapter
-        viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener(){
-            override fun onPageSelected(position: Int) {
-                for (i in 0 until indicatorViewList.size){
-                    if (i == position)
-                        indicatorViewList[i].background = ResourcesCompat.getDrawable(resources,R.drawable.indicator_active, null)
-                    else
-                        indicatorViewList[i].background = ResourcesCompat.getDrawable(resources,R.drawable.indicator_inactive, null)
-
+        // Jetpack Composeを使用してUIを設定
+        setContent {
+            MaterialTheme {
+                Surface {
+                    WalkthroughScreen(
+                        onPermissionRequest = {
+                            checkPermission()
+                        }
+                    )
                 }
             }
-        })
-        indicatorArea = findViewById(R.id.indicator_area)
-        val indicatorWidth = resources.getDimension(R.dimen.walk_through_indicator_size).toInt()
-        val indicatorHeight = resources.getDimension(R.dimen.walk_through_indicator_size).toInt()
-        val indicatorMarginStart = resources.getDimension(R.dimen.walk_through_indicator_margin_start).toInt()
-        for (i in 0 until WalkThroughType.entries.size){
-            var view = View(this)
-            if (i == 0){
-                view.background = AppCompatResources.getDrawable(this, R.drawable.indicator_active)
-                val layoutParams = LinearLayout.LayoutParams(indicatorWidth, indicatorHeight)
-                view.layoutParams = layoutParams
-            }else {
-                view.background = AppCompatResources.getDrawable(this, R.drawable.indicator_inactive)
-                val layoutParams = LinearLayout.LayoutParams(indicatorWidth,indicatorHeight)
-                layoutParams.marginStart = indicatorMarginStart
-                view.layoutParams = layoutParams
-            }
-            indicatorArea.addView(view)
-            indicatorViewList.add(view)
         }
 
+        // パーミッションチェック
+        checkPermission()
+
+        // ウィジェットが存在する場合、NetworkServiceを起動
+        checkAndStartServiceForWidget()
+    }
+
+    private fun checkAndStartServiceForWidget() {
+        try {
+            // ウィジェットが存在するかチェック
+            val appWidgetManager = AppWidgetManager.getInstance(this)
+            val widgetComponent = ComponentName(this, DancingOldmanWidget::class.java)
+            val widgetIds = appWidgetManager.getAppWidgetIds(widgetComponent)
+
+            if (widgetIds.isNotEmpty()) {
+                // ウィジェットが存在する場合、サービスを起動
+                val serviceIntent = Intent(this, NetworkService::class.java).apply {
+                    action = NetworkService.INIT
+                }
+                startForegroundService(serviceIntent)
+                android.util.Log.d("MainActivity", "NetworkService started for widget")
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("MainActivity", "Failed to start NetworkService", e)
+        }
     }
 
     private fun checkPermission() {
@@ -90,7 +83,7 @@ class MainActivity : AppCompatActivity() {
             showPermissionExplanationDialog()
         } else {
             // パーミッションが既に許可されている場合
-            getNetworkType()
+            // 5G検出はComposeのNetworkStatusIndicatorで行うため、ここでは何もしない
         }
     }
 
@@ -138,7 +131,7 @@ class MainActivity : AppCompatActivity() {
             // requestPermissionsで設定した順番で結果が格納されている
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // 許可された(されている)ので処理を続行
-                getNetworkType()
+                // 5G検出はComposeのNetworkStatusIndicatorで行うため、ここでは何もしない
             } else {
                 // パーミッションのリクエストに対して許可せずアプリに戻った場合、ここが走る
                 finish()
@@ -150,41 +143,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun getNetworkType() {
-        val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        telephonyManager.listen(object : PhoneStateListener() {
-
-            override fun onDisplayInfoChanged(telephonyDisplayInfo: TelephonyDisplayInfo) {
-                if (ActivityCompat.checkSelfPermission(
-                        applicationContext,
-                        READ_PHONE_STATE
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    return
-                }
-                super.onDisplayInfoChanged(telephonyDisplayInfo)
-
-                val scope = CoroutineScope(Job() + Dispatchers.Main)
-                scope.launch {
-                    // 5Gネットワークに接続しているか判別
-                    val label = findViewById<TextView>(R.id.network_type_label)
-                    label.text = when (telephonyDisplayInfo.overrideNetworkType) {
-                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_LTE_ADVANCED_PRO -> {
-                            "LTE Advanced Pro (5Ge)"
-                        }
-                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA -> {
-                            "5G NR（Sub-6）network"
-                        }
-                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE -> {
-                            "5G mmWave（5G+ / 5G UW）network"
-                        }
-                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_LTE_CA -> {
-                            "LTE"
-                        }
-                        else -> "other:${telephonyDisplayInfo.overrideNetworkType}"
-                    }
-                }
-            }
-        }, PhoneStateListener.LISTEN_DISPLAY_INFO_CHANGED)
-    }
+    // 5G検出はComposeのNetworkStatusIndicatorで行うため、このメソッドは不要
+    // private fun getNetworkType() { ... }
 }
