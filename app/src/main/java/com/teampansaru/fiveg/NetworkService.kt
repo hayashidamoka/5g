@@ -17,7 +17,11 @@ import android.net.ConnectivityManager.NetworkCallback
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
+import android.os.Build
 import android.os.IBinder
+import android.telephony.PhoneStateListener
+import android.telephony.TelephonyCallback
+import android.telephony.TelephonyDisplayInfo
 import android.telephony.TelephonyManager
 import android.util.Log
 import android.widget.RemoteViews
@@ -32,6 +36,14 @@ class NetworkService : Service() {
     // 5Gエリアに入ったフラグ
     private var isFiveg = false
 
+    // TelephonyManager
+    private lateinit var telephonyManager: TelephonyManager
+    private var phoneStateListener: PhoneStateListener? = null
+    private var telephonyCallback: Any? = null
+
+    // 現在の5G状態（TelephonyDisplayInfoから）
+    private var is5GFromDisplayInfo = false
+
     override fun onBind(intent: Intent): IBinder? {
         return null
     }
@@ -40,11 +52,16 @@ class NetworkService : Service() {
         val builder = createNotification()
         startForeground(100, builder.build())
         connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         createNotificationChannel(getString(R.string.fiveg))
         if(INIT == intent.action) {
             startNetworkMonitoring()
+            startTelephonyMonitoring()
+            Log.d(TAG, "Service initialized with INIT action")
+            // INITアクション時はupdateWidgetをスキップ（5Gチェック後に適切な画像を設定）
+        } else {
+            updateWidget(intent)
         }
-        updateWidget(intent)
         return super.onStartCommand(intent, flags, startId)
     }
 
@@ -55,11 +72,17 @@ class NetworkService : Service() {
         val remoteViews =
             RemoteViews(applicationContext.packageName, R.layout.dancing_oldman_widget)
         if (intent.action == INIT) {
-            remoteViews.setImageViewResource(R.id.oyaji_image_view, R.drawable.other)
+            // INITアクション時は画像を設定せず、クリックリスナーのみ設定
+            // 5G状態は別途checkNetworkChangeで設定される
             val clickIntent = Intent(applicationContext, this.javaClass) //明示的インテント
             clickIntent.action = OYAJI_CLICKED
             val pendingIntent = PendingIntent.getService(applicationContext, 0, clickIntent, PendingIntent.FLAG_IMMUTABLE)
             remoteViews.setOnClickPendingIntent(R.id.transparent_button, pendingIntent)
+            // ウィジェットを更新（クリックリスナーのみ）
+            val manager = AppWidgetManager.getInstance(applicationContext)
+            val widgetId = ComponentName(applicationContext, DancingOldmanWidget::class.java)
+            manager.updateAppWidget(widgetId, remoteViews)
+            return
         }
         if (intent.action == OYAJI_CLICKED) {
             if(!isFiveg) {
@@ -84,7 +107,17 @@ class NetworkService : Service() {
     private fun updateWidget(imageResId: Int) {
         val remoteViews =
             RemoteViews(applicationContext.packageName, R.layout.dancing_oldman_widget)
+
+        // 画像を設定
         remoteViews.setImageViewResource(R.id.oyaji_image_view, imageResId)
+
+        // クリックリスナーも必ず設定（重要！）
+        val clickIntent = Intent(applicationContext, this.javaClass)
+        clickIntent.action = OYAJI_CLICKED
+        val pendingIntent = PendingIntent.getService(applicationContext, 0, clickIntent, PendingIntent.FLAG_IMMUTABLE)
+        remoteViews.setOnClickPendingIntent(R.id.transparent_button, pendingIntent)
+
+        // ウィジェットを更新
         val manager = AppWidgetManager.getInstance(applicationContext)
         val widgetId = ComponentName(applicationContext, DancingOldmanWidget::class.java)
         manager.updateAppWidget(widgetId, remoteViews)
@@ -119,12 +152,17 @@ class NetworkService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         stopNetworkMonitoring()
+        stopTelephonyMonitoring()
     }
 
     private fun startNetworkMonitoring() {
         if (!isPermissionGranted) {
             return
         }
+
+        // 初期状態をチェック
+        checkNetworkChange()
+
         val networkRequest = NetworkRequest.Builder()
             .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
             .build()
@@ -165,15 +203,15 @@ class NetworkService : Service() {
 
     @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
     private fun checkNetworkChange() {
-        if (is5g()) {
-            if(!isFiveg) {
-                Log.d(TAG, "Network type changed: 5G")
-                isFiveg = true
-                // 構えのポーズ
-                updateWidget(R.drawable.fiveg)
-            }
+        val is5GNow = is5g()
+
+        if (is5GNow) {
+            Log.d(TAG, "Network type: 5G")
+            // 構えのポーズ
+            updateWidget(R.drawable.fiveg)
+            isFiveg = true
         } else {
-            Log.d(TAG, "Network type changed: not 5G")
+            Log.d(TAG, "Network type: not 5G")
             // 棒立ち
             updateWidget(R.drawable.other)
             isFiveg = false
@@ -182,19 +220,92 @@ class NetworkService : Service() {
 
     @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
     private fun is5g(): Boolean {
-        val network = connectivityManager.activeNetwork ?: return false
-        val networkCapabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        // モバイルネットワークの5G状態をチェック（WiFi使用中でも確認）
+        // TelephonyDisplayInfoから取得した5G状態を使用
+        // または直接dataNetworkTypeを確認
+        val dataNetworkType = telephonyManager.dataNetworkType
+        val result = is5GFromDisplayInfo || dataNetworkType == TelephonyManager.NETWORK_TYPE_NR
 
-        return when {
-            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
-                false
-            }
-            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
-                val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        // ネットワーク状態をログ出力
+        val network = connectivityManager.activeNetwork
+        val networkCapabilities = network?.let { connectivityManager.getNetworkCapabilities(it) }
+        val transportInfo = when {
+            networkCapabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true -> "WiFi"
+            networkCapabilities?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) == true -> "Cellular"
+            else -> "Other/None"
+        }
 
-                return telephonyManager.dataNetworkType == TelephonyManager.NETWORK_TYPE_NR
+        Log.d(TAG, "is5g: Transport=$transportInfo, is5GFromDisplayInfo=$is5GFromDisplayInfo, dataNetworkType=$dataNetworkType, result=$result")
+
+        return result
+    }
+
+    private fun startTelephonyMonitoring() {
+        if (!isPermissionGranted) {
+            Log.d(TAG, "startTelephonyMonitoring: Permission not granted")
+            return
+        }
+
+        Log.d(TAG, "startTelephonyMonitoring: Starting telephony monitoring")
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Android 12以上
+            val callback = object : TelephonyCallback(), TelephonyCallback.DisplayInfoListener {
+                override fun onDisplayInfoChanged(displayInfo: TelephonyDisplayInfo) {
+                    handleDisplayInfoChanged(displayInfo)
+                }
             }
-            else -> false
+            telephonyCallback = callback
+            telephonyManager.registerTelephonyCallback(applicationContext.mainExecutor, callback)
+            Log.d(TAG, "Registered TelephonyCallback (Android 12+)")
+        } else {
+            // Android 11以下
+            phoneStateListener = object : PhoneStateListener() {
+                override fun onDisplayInfoChanged(displayInfo: TelephonyDisplayInfo) {
+                    super.onDisplayInfoChanged(displayInfo)
+                    handleDisplayInfoChanged(displayInfo)
+                }
+            }
+            telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_DISPLAY_INFO_CHANGED)
+            Log.d(TAG, "Registered PhoneStateListener (Android 11-)")
+        }
+
+        // 初期状態を取得する（少し遅延を入れる）
+        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            // 初期チェックを再実行
+            Log.d(TAG, "Performing initial 5G check after telephony monitoring setup")
+            checkNetworkChange()
+        }, 500)
+    }
+
+    private fun handleDisplayInfoChanged(displayInfo: TelephonyDisplayInfo) {
+        val was5G = is5GFromDisplayInfo
+
+        // 5G判定
+        is5GFromDisplayInfo = when (displayInfo.overrideNetworkType) {
+            TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA,
+            TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE,
+            5 -> true // OVERRIDE_NETWORK_TYPE_NR_ADVANCED
+            else -> displayInfo.networkType == TelephonyManager.NETWORK_TYPE_NR
+        }
+
+        Log.d(TAG, "DisplayInfo changed - is5G: $is5GFromDisplayInfo, overrideType: ${displayInfo.overrideNetworkType}, networkType: ${displayInfo.networkType}")
+
+        // 状態が変化した場合、ウィジェットを更新
+        if (was5G != is5GFromDisplayInfo) {
+            checkNetworkChange()
+        }
+    }
+
+    private fun stopTelephonyMonitoring() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            (telephonyCallback as? TelephonyCallback)?.let {
+                telephonyManager.unregisterTelephonyCallback(it)
+            }
+        } else {
+            phoneStateListener?.let {
+                telephonyManager.listen(it, PhoneStateListener.LISTEN_NONE)
+            }
         }
     }
 
