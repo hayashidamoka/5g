@@ -1,9 +1,14 @@
 package com.teampansaru.fiveg
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import android.os.Build
+import androidx.core.app.NotificationCompat
 
 /**
  * Implementation of App Widget functionality.
@@ -25,27 +30,70 @@ class DancingOldmanWidget : AppWidgetProvider() {
             appWidgetManager.updateAppWidget(appWidgetId, remoteViews)
         }
 
-        // NetworkServiceを起動（アプリが起動していない場合はスキップ）
-        // Android 12以降の制限により、バックグラウンドからフォアグラウンドサービスを起動できない
-        // MainActivityから起動するように変更
-        try {
-            intent = Intent(context, NetworkService::class.java)
-            intent?.also {
-                it.action = NetworkService.INIT
-            }
-            // サービスが既に起動している場合のみ更新を試みる
-            context.startService(intent)
-        } catch (e: Exception) {
-            // サービス起動に失敗した場合は無視（MainActivityから起動される）
-            android.util.Log.d("DancingOldmanWidget", "Service start failed: ${e.message}")
-        }
+        // NetworkServiceの起動は、onEnabled()で表示される通知から行うため、ここでは何もしない
     }
 
     override fun onEnabled(context: Context) {
-        // Enter relevant functionality for when the first widget is created
+        // 最初のウィジェットが作成された時に通知を表示
+        showSetupNotification(context)
     }
 
     override fun onDisabled(context: Context) {
-        // Enter relevant functionality for when the last widget is disabled
+        // 最後のウィジェットが削除された時にNetworkServiceを停止
+        try {
+            val serviceIntent = Intent(context, NetworkService::class.java)
+            context.stopService(serviceIntent)
+            android.util.Log.d("DancingOldmanWidget", "NetworkService stopped")
+        } catch (e: Exception) {
+            android.util.Log.e("DancingOldmanWidget", "Failed to stop NetworkService", e)
+        }
+    }
+
+    /**
+     * ウィジェット設置時の通知を表示
+     */
+    private fun showSetupNotification(context: Context) {
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        // 通知チャンネルを作成（Android 8.0以降）
+        val channel = NotificationChannel(
+            context.getString(R.string.widget_setup_notification_channel_id),
+            context.getString(R.string.widget_setup_notification_channel_name),
+            NotificationManager.IMPORTANCE_HIGH
+        )
+        notificationManager.createNotificationChannel(channel)
+
+        // ServiceLauncherActivityを起動するPendingIntentを作成
+        val intent = Intent(context, ServiceLauncherActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            context,
+            NOTIFICATION_REQUEST_CODE,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        // 通知を作成
+        val notification = NotificationCompat.Builder(
+            context,
+            context.getString(R.string.widget_setup_notification_channel_id)
+        )
+            .setSmallIcon(R.mipmap.ic_stat_fiveg_notification_icon)
+            .setContentTitle(context.getString(R.string.widget_setup_notification_title))
+            .setContentText(context.getString(R.string.widget_setup_notification_text))
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true) // 通知タップ後に自動削除
+            .setContentIntent(pendingIntent)
+            .build()
+
+        // 通知を表示
+        notificationManager.notify(NOTIFICATION_ID, notification)
+        android.util.Log.d("DancingOldmanWidget", "Setup notification displayed")
+    }
+
+    companion object {
+        private const val NOTIFICATION_ID = 1001
+        private const val NOTIFICATION_REQUEST_CODE = 1001
     }
 }

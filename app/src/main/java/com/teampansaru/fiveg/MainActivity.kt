@@ -1,11 +1,8 @@
 package com.teampansaru.fiveg
 
 import android.Manifest.permission.READ_PHONE_STATE
-import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.appwidget.AppWidgetManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -48,29 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         // パーミッションチェック
         checkPermission()
-
-        // ウィジェットが存在する場合、NetworkServiceを起動
-        checkAndStartServiceForWidget()
-    }
-
-    private fun checkAndStartServiceForWidget() {
-        try {
-            // ウィジェットが存在するかチェック
-            val appWidgetManager = AppWidgetManager.getInstance(this)
-            val widgetComponent = ComponentName(this, DancingOldmanWidget::class.java)
-            val widgetIds = appWidgetManager.getAppWidgetIds(widgetComponent)
-
-            if (widgetIds.isNotEmpty()) {
-                // ウィジェットが存在する場合、サービスを起動
-                val serviceIntent = Intent(this, NetworkService::class.java).apply {
-                    action = NetworkService.INIT
-                }
-                startForegroundService(serviceIntent)
-                android.util.Log.d("MainActivity", "NetworkService started for widget")
-            }
-        } catch (e: Exception) {
-            android.util.Log.e("MainActivity", "Failed to start NetworkService", e)
-        }
     }
 
     private fun checkPermission() {
@@ -140,9 +114,4 @@ class MainActivity : AppCompatActivity() {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
-
-
-
-    // 5G検出はComposeのNetworkStatusIndicatorで行うため、このメソッドは不要
-    // private fun getNetworkType() { ... }
 }

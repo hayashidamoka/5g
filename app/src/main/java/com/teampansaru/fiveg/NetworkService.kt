@@ -19,7 +19,6 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.os.Build
 import android.os.IBinder
-import android.telephony.PhoneStateListener
 import android.telephony.TelephonyCallback
 import android.telephony.TelephonyDisplayInfo
 import android.telephony.TelephonyManager
@@ -38,7 +37,6 @@ class NetworkService : Service() {
 
     // TelephonyManager
     private lateinit var telephonyManager: TelephonyManager
-    private var phoneStateListener: PhoneStateListener? = null
     private var telephonyCallback: Any? = null
 
     // 現在の5G状態（TelephonyDisplayInfoから）
@@ -48,21 +46,24 @@ class NetworkService : Service() {
         return null
     }
 
-    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+    @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val builder = createNotification()
         startForeground(100, builder.build())
         connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         createNotificationChannel(getString(R.string.fiveg))
-        if(INIT == intent.action) {
+
+        // START_STICKYで再起動された場合、intentがnullになる可能性がある
+        if(intent == null || INIT == intent.action) {
             startNetworkMonitoring()
             startTelephonyMonitoring()
-            Log.d(TAG, "Service initialized with INIT action")
+            Log.d(TAG, "Service initialized with INIT action or restarted by system")
             // INITアクション時はupdateWidgetをスキップ（5Gチェック後に適切な画像を設定）
         } else {
             updateWidget(intent)
         }
-        return super.onStartCommand(intent, flags, startId)
+        return START_STICKY
     }
 
     private val isPermissionGranted: Boolean
@@ -155,6 +156,7 @@ class NetworkService : Service() {
         stopTelephonyMonitoring()
     }
 
+    @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
     private fun startNetworkMonitoring() {
         if (!isPermissionGranted) {
             return
@@ -171,6 +173,7 @@ class NetworkService : Service() {
             @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
             override fun onAvailable(network: Network) {
                 super.onAvailable(network)
+                Log.d(TAG, "コールバック: onAvailable")
                 Log.d(TAG, "Network available: $network")
                 checkNetworkChange()
             }
@@ -178,6 +181,7 @@ class NetworkService : Service() {
             @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
             override fun onLost(network: Network) {
                 super.onLost(network)
+                Log.d(TAG, "コールバック: onLost")
                 Log.d(TAG, "Network lost: $network")
                 checkNetworkChange()
             }
@@ -185,6 +189,7 @@ class NetworkService : Service() {
             @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
             override fun onCapabilitiesChanged(network: Network, networkCapabilities: NetworkCapabilities) {
                 super.onCapabilitiesChanged(network, networkCapabilities)
+                Log.d(TAG, "コールバック: onCapabilitiesChanged")
                 Log.d(TAG, "Network capabilities changed: $network")
                 checkNetworkChange()
             }
@@ -204,17 +209,27 @@ class NetworkService : Service() {
     @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
     private fun checkNetworkChange() {
         val is5GNow = is5g()
+        val is4GNow = is4g()
 
-        if (is5GNow) {
-            Log.d(TAG, "Network type: 5G")
-            // 構えのポーズ
-            updateWidget(R.drawable.fiveg)
-            isFiveg = true
-        } else {
-            Log.d(TAG, "Network type: not 5G")
-            // 棒立ち
-            updateWidget(R.drawable.other)
-            isFiveg = false
+        when {
+            is5GNow -> {
+                Log.d(TAG, "Network type: 5G")
+                // 構えのポーズ
+                updateWidget(R.drawable.fiveg)
+                isFiveg = true
+            }
+            is4GNow -> {
+                Log.d(TAG, "Network type: 4G (LTE)")
+                // 棒立ち
+                updateWidget(R.drawable.other)
+                isFiveg = false
+            }
+            else -> {
+                Log.d(TAG, "Network type: Other (3G/2G/None)")
+                // 棒立ち
+                updateWidget(R.drawable.other)
+                isFiveg = false
+            }
         }
     }
 
@@ -240,6 +255,16 @@ class NetworkService : Service() {
         return result
     }
 
+    @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
+    private fun is4g(): Boolean {
+        val dataNetworkType = telephonyManager.dataNetworkType
+        val result = dataNetworkType == TelephonyManager.NETWORK_TYPE_LTE
+
+        Log.d(TAG, "is4g: dataNetworkType=$dataNetworkType, result=$result")
+
+        return result
+    }
+
     private fun startTelephonyMonitoring() {
         if (!isPermissionGranted) {
             Log.d(TAG, "startTelephonyMonitoring: Permission not granted")
@@ -248,44 +273,27 @@ class NetworkService : Service() {
 
         Log.d(TAG, "startTelephonyMonitoring: Starting telephony monitoring")
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            // Android 12以上
-            val callback = object : TelephonyCallback(), TelephonyCallback.DisplayInfoListener {
-                override fun onDisplayInfoChanged(displayInfo: TelephonyDisplayInfo) {
-                    handleDisplayInfoChanged(displayInfo)
-                }
+        // Android 12以上
+        val callback = object : TelephonyCallback(), TelephonyCallback.DisplayInfoListener {
+            @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
+            override fun onDisplayInfoChanged(displayInfo: TelephonyDisplayInfo) {
+                Log.d(TAG, "コールバック: onDisplayInfoChanged")
+                handleDisplayInfoChanged(displayInfo)
             }
-            telephonyCallback = callback
-            telephonyManager.registerTelephonyCallback(applicationContext.mainExecutor, callback)
-            Log.d(TAG, "Registered TelephonyCallback (Android 12+)")
-        } else {
-            // Android 11以下
-            phoneStateListener = object : PhoneStateListener() {
-                override fun onDisplayInfoChanged(displayInfo: TelephonyDisplayInfo) {
-                    super.onDisplayInfoChanged(displayInfo)
-                    handleDisplayInfoChanged(displayInfo)
-                }
-            }
-            telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_DISPLAY_INFO_CHANGED)
-            Log.d(TAG, "Registered PhoneStateListener (Android 11-)")
         }
-
-        // 初期状態を取得する（少し遅延を入れる）
-        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-            // 初期チェックを再実行
-            Log.d(TAG, "Performing initial 5G check after telephony monitoring setup")
-            checkNetworkChange()
-        }, 500)
+        telephonyCallback = callback
+        telephonyManager.registerTelephonyCallback(applicationContext.mainExecutor, callback)
+        Log.d(TAG, "Registered TelephonyCallback (Android 12+)")
     }
 
+    @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
     private fun handleDisplayInfoChanged(displayInfo: TelephonyDisplayInfo) {
         val was5G = is5GFromDisplayInfo
 
         // 5G判定
         is5GFromDisplayInfo = when (displayInfo.overrideNetworkType) {
             TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA,
-            TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_NSA_MMWAVE,
-            5 -> true // OVERRIDE_NETWORK_TYPE_NR_ADVANCED
+            TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_NR_ADVANCED -> true // OVERRIDE_NETWORK_TYPE_NR_ADVANCED
             else -> displayInfo.networkType == TelephonyManager.NETWORK_TYPE_NR
         }
 
@@ -298,14 +306,8 @@ class NetworkService : Service() {
     }
 
     private fun stopTelephonyMonitoring() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            (telephonyCallback as? TelephonyCallback)?.let {
-                telephonyManager.unregisterTelephonyCallback(it)
-            }
-        } else {
-            phoneStateListener?.let {
-                telephonyManager.listen(it, PhoneStateListener.LISTEN_NONE)
-            }
+        (telephonyCallback as? TelephonyCallback)?.let {
+            telephonyManager.unregisterTelephonyCallback(it)
         }
     }
 

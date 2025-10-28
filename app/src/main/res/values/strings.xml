@@ -25,5 +25,9 @@
     <string name="permission_dialog_message">このアプリは電話の発信と管理の権限を必要とします。5Gネットワークの状態を監視するために使用されます。</string>
     <string name="permission_dialog_ok">OK</string>
     <string name="permission_dialog_close">閉じる</string>
+    <string name="widget_setup_notification_title">5爺の準備が完了しました</string>
+    <string name="widget_setup_notification_text">タップして5G監視を開始</string>
+    <string name="widget_setup_notification_channel_id">widget_setup_channel</string>
+    <string name="widget_setup_notification_channel_name">ウィジェット設定</string>
 
 </resources>
